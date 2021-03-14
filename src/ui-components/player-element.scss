@@ -1,0 +1,87 @@
+$x-height: 140px;
+$x-width: calc(#{$x-height} * 29 / 100);
+
+
+$o-size: $x-height;
+$o-hole-size: $x-width;
+.the-x {
+  margin-right: $x-width;
+  margin-left: $x-width;
+  
+  height: $x-height;
+  position: relative;
+  width: $x-width;
+  transform: rotate(45deg);
+  transform-style: preserve-3d;
+  background: linear-gradient(
+    0deg,
+    rgba(52, 118, 250, 1) 0%,
+    rgba(132, 234, 212, 1) 100%
+  );
+
+  
+
+  &::after {
+    content: "";
+    height: $x-width;
+    position: absolute;
+    top: calc((#{$x-height}/ 2) - #{$x-width/2});
+    left: calc(-#{$x-height}/ 2 + #{$x-width/2});
+    width: $x-height;
+    background: linear-gradient(
+      0deg,
+      rgba(83, 161, 237, 1) 0%,
+      rgba(104, 193, 227, 1) 100%
+    );
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc((#{$x-height} / 2) + #{$x-width});
+    left: calc((#{$x-height} / 2) - #{$x-width/2});
+    width: $x-width;
+    
+    background: transparent;
+    transform: translateZ(-1px) rotate(-45deg);
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px 15px rgba(83, 161, 237, 1);
+  }
+}
+
+.the-o {
+  width: $o-size;
+  height: $o-size;
+
+  border-radius: 50%;
+  position: relative;
+  background: linear-gradient(
+    35deg,
+    rgba(245, 107, 55, 1) 0%,
+    rgba(240, 225, 112, 1) 100%
+  );
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: $o-hole-size;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    width: $o-hole-size;
+    background: white;
+    border-radius: 50%;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    width: 40%;
+    
+    background: transparent;
+    transform: translateZ(-1px);
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px 15px rgba(245, 107, 55, 1);
+  }
+}
